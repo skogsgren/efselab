@@ -26,6 +26,7 @@ Aaron Smith <aaron.smith@lingfil.uu.se>
 
 MAX_TOKEN = 256
 
+
 @dataclass
 class ParseEntry:
     """dataclass for returning Stanza parse compatible list"""
@@ -90,6 +91,9 @@ class SwedishPipeline:
         for filename in filenames:
             self.documents[Path(filename).name] = Document(filename)
             self.process_file(Path(filename))
+
+    def __repr__(self):
+        return f"SwedishPipeline({list(self.documents.keys())})"
 
     def save(self, output_dir: Path | str = Path("./output")):
         """saves processed data to json given an output directory path"""
