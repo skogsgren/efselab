@@ -47,19 +47,17 @@ they should become available in `pefselab` as well.
 
 To create a UD POS tagger the following code deals with both downloading UD
 Treebanks, preprocessing, building and training. Let's pick
-[`UD_French_GSD`](https://universaldependencies.org/treebanks/fr_gsd/).
+[`UD_French-GSD`](https://universaldependencies.org/treebanks/fr_gsd/).
 
 ```python
 from pefselab.train_udt import udt_pipeline
 
-udt_pipeline("UD_French_GSD")
+udt_pipeline("UD_French-GSD")
 ```
 
 This trains the model and puts it in the model directory. Then we can access it
-through the `Model` wrapper. Note that the `Model` wrapper uses the UD
-langcode, which we can get programmatically using the `pefselab.Info` wrapper,
-or manually by running `python3 -m pefselab` and looking under available
-models.
+through the `Model` wrapper. We can access available models by running `python3
+-m pefselab` where available models will be printed last.
 
 ```python
 from pefselab.wrappers import Model
@@ -93,6 +91,8 @@ Which produces the following output:
 'NOUN|Gender=Fem|Number=Sing', 'ADP', 'VERB|VerbForm=Inf', 'ADP',
 'NOUN|Gender=Fem|Number=Sing', 'ADJ|Gender=Fem|Number=Sing', 'PROPN')
 ```
+
+I hope this output looks good since I don't speak French.
 
 ### Swedish Pipeline
 

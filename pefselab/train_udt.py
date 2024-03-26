@@ -158,7 +158,8 @@ class TrainerUdt:
                 self.data["train"],
                 self.data["dev"],
                 f"{get_data_dir().joinpath('models', 'ud' + str(Path(self.lang).with_suffix('.bin')))}",
-            ]
+            ],
+            check=False,
         )
 
 
@@ -177,7 +178,10 @@ def udt_pipeline(lang: str) -> None:
         get_udt()
 
     langpath: Path = udt_path.joinpath(lang)
-    assert langpath.exists()
+    if not langpath.exists():
+        print(Info())
+        print(f"ERR: {langpath.name} doesn't exist. see language codes above")
+        return
     langid: str = Info().udt_langs[lang]
     trainer: TrainerUdt = TrainerUdt(lang=langid, datapath=langpath)
     trainer.fit()
