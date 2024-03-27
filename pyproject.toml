@@ -1,6 +1,6 @@
 [project]
 name = "pefselab"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="skogsgren", email="6107181+skogsgren@users.noreply.github.com" },
 ]
