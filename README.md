@@ -100,11 +100,12 @@ To run the Swedish pipeline on two text-files, `file1.txt` and `file2.txt`, one
 can use the following code:
 
 ```python
-from pefselab.train_swe_pipeline import create_pipeline
-from pefselab.swe_pipeline import SwedishPipeline, pipeline_available
+from pefselab.train_swe_pipeline import create_pipeline, pipeline_available
 
 if not pipeline_available():
     create_pipeline()
+
+from pefselab.swe_pipeline import SwedishPipeline
 
 nlp: SwedishPipeline = SwedishPipeline(
     ["file1.txt", "file2.txt"]
